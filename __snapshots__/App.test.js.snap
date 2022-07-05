@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`counter test correctly 0 visible in count 1`] = `
+<React.Fragment>
+  <Counter
+    count={0}
+    decrementCount={[Function]}
+    incrementCount={[Function]}
+    setCount={[Function]}
+  />
+</React.Fragment>
+`;
