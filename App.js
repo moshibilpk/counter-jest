@@ -1,17 +1,26 @@
-import { View, Text } from 'react-native'
-import React, { useState } from 'react'
-import Counter from './src/counter/Counter'
+//@flow
 
-function App() {
-  const [count, setCount] = useState(0)
+import {View, Text} from 'react-native';
+import React, {useState} from 'react';
+import Counter from './src/counter/Counter';
+import type {Node} from 'react';
+
+type OwnPropType = {|
+  incrementCount?: () => Promise<void> | void,
+  decrementCount?: () => Promise<void> | void,
+  count: number,
+|};
+
+function App(): Node {
+  const [count, setCount] = useState(0);
 
   const incrementCount = () => {
-    setCount(previousCount => previousCount + 1)
-  }
+    setCount(previousCount => previousCount + 1);
+  };
 
   const decrementCount = () => {
-    count === 0 ? 0 : setCount(previousCount => previousCount - 1)
-  }
+    setCount(previousCount => previousCount - 1);
+  };
 
   return (
     <>
@@ -21,7 +30,7 @@ function App() {
         decrementCount={decrementCount}
       />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

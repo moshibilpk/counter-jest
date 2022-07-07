@@ -35,8 +35,22 @@ describe('counter', () => {
   });
   test('0 visible and buttonNames are correct', () => {
     const result = renderCounter();
-    expect(result.props.children[0].props.buttonName).toEqual(incrementButton);
     expect(result.props.children[1].props.children).toBe(0);
-    expect(result.props.children[2].props.buttonName).toEqual(decrementButton);
+  });
+  test('button action work properly and buttonName is correct', () => {
+    count = 1;
+    const result = renderCounter();
+    const button = findAllWithType(result, Button);
+    button[0].props.onPress();
+    expect(button[0].props.buttonName).toEqual(incrementButton);
+    button[1].props.onPress();
+    expect(button[1].props.buttonName).toEqual(decrementButton);
+    expect(button.length).toBe(2);
+  });
+  test('decrement button hidden when count is zero', () => {
+    count = 0;
+    const result = renderCounter();
+    const button = findAllWithType(result, Button);
+    expect(button.length).toBe(1);
   });
 });

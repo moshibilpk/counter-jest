@@ -25,9 +25,5 @@ exports[`counter render correctly 1`] = `
   >
     0
   </Text>
-  <Button
-    buttonName="Decrement"
-    onPress={[MockFunction]}
-  />
 </View>
 `;

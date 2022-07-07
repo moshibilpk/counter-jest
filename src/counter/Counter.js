@@ -16,7 +16,9 @@ const Counter = ({count, incrementCount, decrementCount}: PropsType): Node => {
     <View style={styles.container}>
       <Button buttonName={'Increment'} onPress={incrementCount} />
       <Text style={styles.counter}>{count}</Text>
-      <Button buttonName={'Decrement'} onPress={decrementCount} />
+      {count !== 0 ? (
+        <Button buttonName={'Decrement'} onPress={decrementCount} />
+      ) : null}
     </View>
   );
 };
