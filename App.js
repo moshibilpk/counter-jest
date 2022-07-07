@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 import React, { useState } from 'react'
 import Counter from './src/counter/Counter'
 
-export default function App() {
+function App() {
   const [count, setCount] = useState(0)
 
   const incrementCount = () => {
@@ -17,10 +17,11 @@ export default function App() {
     <>
       <Counter
         count={count}
-        setCount={setCount}
         incrementCount={incrementCount}
         decrementCount={decrementCount}
       />
     </>
   )
 }
+
+export default App

@@ -1,36 +1,37 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+// @flow
+import {View, TouchableHighlight, Text, StyleSheet} from 'react-native';
+import React from 'react';
+import type {Element} from 'react';
+import Button from '../components/Button';
+import type {Node} from 'react';
 
-export default function Counter({ count, incrementCount, decrementCount }) {
+type PropsType = {|
+  incrementCount?: () => Promise<void> | void,
+  decrementCount?: () => Promise<void> | void,
+  count: number,
+|};
 
-    return (
-        <View style={styles.container}>
-            <Text testID='increment' style={styles.counterButton} onPress={incrementCount}>
-                Increment
-            </Text>
-            <Text style={styles.counter}>{count}</Text>
-            <Text testID='decrement' style={styles.counterButton} onPress={decrementCount}>
-                Decrement
-            </Text>
-        </View>
-    )
-}
+const Counter = ({count, incrementCount, decrementCount}: PropsType): Node => {
+  return (
+    <View style={styles.container}>
+      <Button buttonName={'Increment'} onPress={incrementCount} />
+      <Text style={styles.counter}>{count}</Text>
+      <Button buttonName={'Decrement'} onPress={decrementCount} />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    counterButton: {
-        backgroundColor: '#000',
-        color: '#fff',
-        padding: 10,
-        borderRadius: 5
-    },
-    counter: {
-        fontSize: 20,
-        color: '#000',
-        margin: 5
-    }
-})
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  counter: {
+    fontSize: 20,
+    color: '#000',
+    margin: 5,
+  },
+});
+
+export default Counter;
