@@ -19,9 +19,7 @@ const renderCounter = () => {
 
 let incrementCount: () => void,
   decrementCount: () => void,
-  count: number,
-  incrementButton = 'Increment',
-  decrementButton = 'Decrement';
+  count: number
 
 describe('counter', () => {
   beforeEach(() => {
@@ -42,9 +40,9 @@ describe('counter', () => {
     const result = renderCounter();
     const button = findAllWithType(result, Button);
     button[0].props.onPress();
-    expect(button[0].props.buttonName).toEqual(incrementButton);
+    expect(button[0].props.buttonName).toEqual('Increment');
     button[1].props.onPress();
-    expect(button[1].props.buttonName).toEqual(decrementButton);
+    expect(button[1].props.buttonName).toEqual('Decrement');
     expect(button.length).toBe(2);
   });
   test('decrement button hidden when count is zero', () => {

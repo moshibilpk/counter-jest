@@ -1,8 +1,6 @@
 //@flow
-
 import {TouchableHighlight, Text, StyleSheet} from 'react-native';
 import React from 'react';
-
 import type {Node, Element} from 'react';
 
 type PropsType = {|
@@ -20,7 +18,6 @@ const Button = ({
     </TouchableHighlight>
   );
 };
-
 export default Button;
 
 const styles = StyleSheet.create({
